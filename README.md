@@ -8,6 +8,7 @@ Included are the following:
 - apache: A simple Apache install, including SSL support
 - apache-php: The above, but including PHP5 support
 - laravel: As apache-php, with the Laravel framework ready for your app code
+- phalcon: As apache-php, with the Phalcon framework ready for your app code
 
 Feel free to derive images from any of the above, which are available as
 eboraas/apache, eboraas/apache-php, eboraas/laravel, and eboraas/phalcon. I
