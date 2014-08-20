@@ -2,7 +2,7 @@
 
 This is a Phalcon application server image based on Apache (with SSL support) and PHP5. In order to use this image effectively, you'll need to mount:
 
-- /var/www/phalcon/app for your app code (e.g. using "-v /home/jdoe/myapp/:/var/www/phalcon/app/")
+- /var/www/phalcon/ for your app code (e.g. using "-v /home/jdoe/myapp/:/var/www/phalcon/app/")
 - /var/log/apache2, optionally, if you want to store logfiles visibly outside the container
 - /etc/ssl, optionally, if you wish to use SSL with real keys
 
@@ -12,10 +12,10 @@ As per the defaults, Apache will use the bundled "snakeoil" key when serving SSL
 
 ## Simple Examples ##
 
-Assuming you have your app code at /home/jdoe/myapp/, the below will be sufficient to serve it. Note that many Docker users encourage mounting data from a storage container, rather than directly from the filesyetem.
+Assuming you have your app code at /home/jdoe/myapp/, with a public/ directory withinit suitable to act as the document root, then the below will be sufficient to serve it. Note that many Docker users encourage mounting data from a storage container, rather than directly from the filesyetem.
 
-- "You have arrived": `docker run -p 80:80 -p 443:443 -d eboraas/phalcon` and browse to the host's IP address using http or https
-- Serving your own app, with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/myapp/:/var/www/phalcon/app/ -d eboraas/phalcon`
-- ... without SSL support: `docker -p 80:80 -v /home/jdoe/myapp/:/var/www/phalcon/app/ -d eboraas/phalcon`
-- ... using non-standard ports: `docker -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/:/var/www/phalcon/app/ -d eboraas/phalcon`
+- "It works!": `docker run -p 80:80 -p 443:443 -d eboraas/phalcon` and browse to the host's IP address using http or https
+- Serving your own app, with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
+- ... without SSL support: `docker -p 80:80 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
+- ... using non-standard ports: `docker -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
 
