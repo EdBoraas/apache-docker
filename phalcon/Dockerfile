@@ -15,6 +15,7 @@ RUN ./install
 RUN /bin/echo 'extension=phalcon.so' >/etc/php5/mods-available/phalcon.ini
 RUN /usr/sbin/php5enmod phalcon
 RUN /bin/rm -rf /tmp/cphalcon/
+RUN /usr/bin/apt-get -y purge git php5-dev libpcre3-dev gcc make && apt-get -y autoremove && apt-get clean
 WORKDIR /var/www/phalcon/public
 RUN /bin/mv /var/www/index.html /var/www/phalcon/public
 
