@@ -1,4 +1,4 @@
-FROM eboraas/debian
+FROM eboraas/debian:stable
 MAINTAINER Ed Boraas <ed@boraas.ca>
 
 RUN apt-get update && apt-get -y install apache2 && apt-get clean
