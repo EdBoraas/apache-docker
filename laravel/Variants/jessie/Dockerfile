@@ -4,6 +4,11 @@ MAINTAINER Ed Boraas <ed@boraas.ca>
 RUN apt-get update && apt-get -y install git curl php5-mcrypt php5-json && apt-get -y autoremove && apt-get clean
 
 RUN /usr/sbin/a2enmod rewrite
+
+# This is no longer available by default in jessie's apache2
+RUN /usr/sbin/a2enmod socache_shmcb || true
+
+# Note: "default" is enabled in the default installation, and "default-ssl" is enabled in the eboraas/apache image, so no need to recreate the symlinks here, just copy the new site definitions into place
 ADD default /etc/apache2/sites-available/
 ADD default-ssl /etc/apache2/sites-available/
 
