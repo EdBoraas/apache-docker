@@ -19,7 +19,7 @@ RUN /usr/bin/apt-get update && apt-get -y install git php5-dev libpcre3-dev gcc 
 RUN /bin/echo 'extension=phalcon.so' >/etc/php5/mods-available/phalcon.ini
 RUN /usr/sbin/php5enmod phalcon
 WORKDIR /var/www/phalcon/public
-RUN /bin/mv /var/www/index.html /var/www/phalcon/public
+RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/public/index.html
 
 EXPOSE 80
 EXPOSE 443
