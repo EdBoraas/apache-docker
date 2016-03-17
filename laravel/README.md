@@ -16,6 +16,6 @@ Assuming you have your app code at /home/jdoe/myapp/, the below will be sufficie
 
 - "You have arrived": `docker run -p 80:80 -p 443:443 -d eboraas/laravel` and browse to the host's IP address using http or https
 - Serving your own app, with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
-- ... without SSL support: `docker -p 80:80 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
-- ... using non-standard ports: `docker -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
+- ... without SSL support: `docker run -p 80:80 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
+- ... using non-standard ports: `docker run -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
 
