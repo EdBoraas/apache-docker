@@ -16,6 +16,6 @@ Assuming you have your app code at /home/jdoe/myapp/, with a public/ directory w
 
 - "It works!": `docker run -p 80:80 -p 443:443 -d eboraas/phalcon` and browse to the host's IP address using http or https
 - Serving your own app, with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
-- ... without SSL support: `docker -p 80:80 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
-- ... using non-standard ports: `docker -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
+- ... without SSL support: `docker run -p 80:80 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
+- ... using non-standard ports: `docker run -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/:/var/www/phalcon/ -d eboraas/phalcon`
 
