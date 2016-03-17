@@ -3,9 +3,9 @@ MAINTAINER Ed Boraas <ed@boraas.ca>
 
 RUN /usr/sbin/a2enmod rewrite
 
-# Note: "default" is enabled in the default installation, and "default-ssl" is enabled in the eboraas/apache image, so no need to recreate the symlinks here, just copy the new site definitions into place
-ADD default /etc/apache2/sites-available/
-ADD default-ssl /etc/apache2/sites-available/
+ADD 000-phalcon.conf /etc/apache2/sites-available/
+ADD 001-phalcon-ssl.conf /etc/apache2/sites-available/
+RUN /usr/sbin/a2dissite '*' && /usr/sbin/a2ensite 000-phalcon 001-phalcon-ssl
 
 WORKDIR /tmp
 # Run build process on one line to avoid generating bloat via intermediate images
