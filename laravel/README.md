@@ -14,7 +14,7 @@ As per the defaults, Apache will use the bundled "snakeoil" key when serving SSL
 
 Assuming you have your app code at /home/jdoe/myapp/, the below will be sufficient to serve it. Note that many Docker users encourage mounting data from a storage container, rather than directly from the filesyetem.
 
-- "You have arrived": `docker run -p 80:80 -p 443:443 -d eboraas/laravel` and browse to the host's IP address using http or https
+- Default Laravel splash page: `docker run -p 80:80 -p 443:443 -d eboraas/laravel` and browse to the host's IP address using http or https
 - Serving your own app, with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
 - ... without SSL support: `docker run -p 80:80 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
 - ... using non-standard ports: `docker run -p 8080:80 -p 8443:443 -v /home/jdoe/myapp/app/:/var/www/laravel/app/ -v /home/jdoe/myapp/public/:/var/www/laravel/public/ -d eboraas/laravel`
