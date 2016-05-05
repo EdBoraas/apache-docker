@@ -1,7 +1,7 @@
 FROM eboraas/apache-php
 MAINTAINER Ed Boraas <ed@boraas.ca>
 
-RUN apt-get update && apt-get -y install git curl php5-mcrypt php5-json && apt-get -y autoremove && apt-get clean
+RUN apt-get update && apt-get -y install git curl php5-mcrypt php5-json && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN /usr/sbin/a2enmod rewrite
 
