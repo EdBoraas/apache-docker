@@ -2,7 +2,7 @@
 
 This is an Apache image including SSL and PHP5 support. In order to use this image effectively, you'll need to mount:
 
-- /var/www for your site content (e.g. using "-v /home/jdoe/mysite/:/var/www/")
+- /var/www/html for your site content (e.g. using "-v /home/jdoe/mysite/:/var/www/html/")
 - /var/log/apache2, optionally, if you want to store logfiles visibly outside the container
 - /etc/ssl, optionally, if you wish to use SSL with real keys
 
@@ -15,7 +15,7 @@ As per the defaults, Apache will use the bundled "snakeoil" key when serving SSL
 Assuming you have your content at /home/jdoe/mysite/, the below will be sufficient to serve it. Note that many Docker users encourage mounting data from a storage container, rather than directly from the filesyetem.
 
 - "It works!": `docker run -p 80:80 -p 443:443 -d eboraas/apache-php` and browse to the host's IP address using http or https
-- Serving actual content with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/mysite/:/var/www/ -d eboraas/apache-php`
-- ... without SSL support: `docker run -p 80:80 -v /home/jdoe/mysite/:/var/www/ -d eboraas/apache-php`
-- ... using non-standard ports: `docker run -p 8080:80 -p 8443:443 -v /home/jdoe/mysite/:/var/www/ -d eboraas/apache-php`
+- Serving actual content with SSL support: `docker run -p 80:80 -p 443:443 -v /home/jdoe/mysite/:/var/www/html/ -d eboraas/apache-php`
+- ... without SSL support: `docker run -p 80:80 -v /home/jdoe/mysite/:/var/www/html/ -d eboraas/apache-php`
+- ... using non-standard ports: `docker run -p 8080:80 -p 8443:443 -v /home/jdoe/mysite/:/var/www/html/ -d eboraas/apache-php`
 
