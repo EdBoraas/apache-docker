@@ -9,15 +9,15 @@ RUN /usr/sbin/a2dissite '*' && /usr/sbin/a2ensite 000-phalcon 001-phalcon-ssl
 
 WORKDIR /tmp
 # Run build process on one line to avoid generating bloat via intermediate images
-RUN /usr/bin/apt-get update && apt-get -y install git php5-dev libpcre3-dev gcc make && \
+RUN /usr/bin/apt-get update && apt-get -y install git php-dev libpcre3-dev gcc make && \
     /usr/bin/git clone git://github.com/phalcon/cphalcon.git && \
     cd cphalcon/build/ && \
     ./install && \
     cd /tmp && \
     /bin/rm -rf /tmp/cphalcon/ && \
-    /usr/bin/apt-get -y purge git php5-dev libpcre3-dev gcc make && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN /bin/echo 'extension=phalcon.so' >/etc/php5/mods-available/phalcon.ini
-RUN /usr/sbin/php5enmod phalcon
+    /usr/bin/apt-get -y purge git php-dev libpcre3-dev gcc make && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN /bin/echo 'extension=phalcon.so' >/etc/php/7.0/mods-available/phalcon.ini
+RUN /usr/sbin/phpenmod phalcon
 WORKDIR /var/www/phalcon/public
 RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/public/index.html
 
