@@ -1,7 +1,7 @@
 FROM eboraas/apache-php
 MAINTAINER Ed Boraas <ed@boraas.ca>
 
-RUN apt-get update && apt-get -y install git curl php-mcrypt php-json php-mbstring php-zip php-dom && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y install git curl php-json php-mbstring php-zip php-dom && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN /usr/sbin/a2enmod rewrite
 

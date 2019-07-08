@@ -16,7 +16,7 @@ RUN /usr/bin/apt-get update && apt-get -y install git php-dev libpcre3-dev gcc m
     cd /tmp && \
     /bin/rm -rf /tmp/cphalcon/ && \
     /usr/bin/apt-get -y purge git php-dev libpcre3-dev gcc make && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN /bin/echo 'extension=phalcon.so' >/etc/php/7.0/mods-available/phalcon.ini
+RUN /bin/echo 'extension=phalcon.so' > /etc/php/7.3/mods-available/phalcon.ini
 RUN /usr/sbin/phpenmod phalcon
 WORKDIR /var/www/phalcon/public
 RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/public/index.html
